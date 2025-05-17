@@ -1,0 +1,390 @@
+/* Стили для свечек и пентаграммы */
+.candle-shop-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+    padding: 15px;
+    color: #FFD700;
+    font-family: 'Papyrus', fantasy;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 250px;
+}
+
+.shop-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.shop-items {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.shop-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    border-radius: 5px;
+    background-color: rgba(184, 134, 11, 0.2);
+}
+
+.item-name {
+    font-size: 14px;
+}
+
+.item-price {
+    font-size: 14px;
+    color: #32CD32;
+}
+
+.buy-button {
+    background-color: #B8860B;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: 'Papyrus', fantasy;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.buy-button:hover {
+    background-color: #FFD700;
+}
+
+.pentagram-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    display: none;
+    z-index: 1001;
+}
+
+.pentagram {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.pentagram-point {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 215, 0, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pentagram-point:hover {
+    background-color: rgba(255, 215, 0, 0.8);
+}
+
+.pentagram-point.active {
+    background-color: #FF4500;
+}
+
+.candle {
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 48"><rect x="8" y="16" width="8" height="32" fill="%23F5F5DC"/><ellipse cx="12" cy="16" rx="4" ry="2" fill="%23F5F5DC"/><path d="M12,0 Q16,8 12,16 Q8,8 12,0" fill="%23FF4500"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1002;
+}
+
+.candle-flame {
+    position: absolute;
+    top: -10px;
+    left: 5px;
+    width: 10px;
+    height: 15px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 15"><path d="M5,0 Q8,5 5,10 Q2,5 5,0" fill="%23FFD700"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: flicker 0.5s infinite alternate;
+}
+
+@keyframes flicker {
+    0% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scaleY(0.8);
+        opacity: 0.8;
+    }
+}
+
+.fan-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #FFD700;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s;
+}
+
+.fan-button:hover {
+    transform: scale(1.1);
+}
+
+.fan-icon {
+    width: 40px;
+    height: 40px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2 A10,10 0 0 1 22,12 A10,10 0 0 1 12,22 A10,10 0 0 1 2,12 A10,10 0 0 1 12,2 Z M12,5 L8,12 L12,19 L16,12 Z" fill="%23FFD700"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.fan-active {
+    animation: fan-spin 0.5s linear;
+}
+
+@keyframes fan-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.payment-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.payment-content {
+    background-color: #1E1E1E;
+    border: 3px solid #FFD700;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    color: #FFD700;
+    font-family: 'Papyrus', fantasy;
+}
+
+.payment-header {
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 1px solid #FFD700;
+    padding-bottom: 10px;
+}
+
+.payment-details {
+    margin-bottom: 20px;
+}
+
+.payment-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.payment-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.payment-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Papyrus', fantasy;
+    font-weight: bold;
+}
+
+.payment-confirm {
+    background-color: #32CD32;
+    color: #000;
+    border: none;
+}
+
+.payment-cancel {
+    background-color: #B22222;
+    color: #FFF;
+    border: none;
+}
+
+.sberbank-logo {
+    width: 100px;
+    height: 30px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 30"><rect width="100" height="30" fill="%2321A038"/><text x="10" y="20" font-family="Arial" font-size="12" fill="white">СБЕРБАНК</text></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 auto 15px;
+}
+
+.music-player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+    padding: 10px;
+    color: #FFD700;
+    font-family: 'Papyrus', fantasy;
+    z-index: 1000;
+    display: none;
+}
+
+.music-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.music-button {
+    width: 30px;
+    height: 30px;
+    background-color: rgba(184, 134, 11, 0.5);
+    border: 1px solid #FFD700;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.music-button:hover {
+    background-color: rgba(255, 215, 0, 0.5);
+}
+
+.music-title {
+    font-size: 14px;
+    margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
+
+.shape-selector {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+    padding: 10px;
+    color: #FFD700;
+    font-family: 'Papyrus', fantasy;
+    z-index: 1000;
+    display: none;
+}
+
+.shape-title {
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.shape-options {
+    display: flex;
+    gap: 10px;
+}
+
+.shape-option {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(184, 134, 11, 0.5);
+    border: 1px solid #FFD700;
+    border-radius: 5px;
+    cursor: pointer;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.shape-option.selected {
+    border: 2px solid #FF4500;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+}
+
+.shape-pentagram {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,5 L61,40 L97,40 L68,62 L79,95 L50,75 L21,95 L32,62 L3,40 L39,40 Z" fill="none" stroke="%23FFD700" stroke-width="2"/></svg>');
+}
+
+.shape-circle {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="%23FFD700" stroke-width="2"/></svg>');
+}
+
+.shape-triangle {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,10 L90,80 L10,80 Z" fill="none" stroke="%23FFD700" stroke-width="2"/></svg>');
+}
+
+.notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+    padding: 15px 20px;
+    color: #FFD700;
+    font-family: 'Papyrus', fantasy;
+    z-index: 2001;
+    text-align: center;
+    animation: notification-fade 2s forwards;
+    pointer-events: none;
+}
+
+@keyframes notification-fade {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    80% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+}

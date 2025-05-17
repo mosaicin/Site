@@ -1,28 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вращающиеся круги</title>
+    <title>Египетские пирамиды - Игра</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/improved-controls.css">
+    <link rel="stylesheet" href="css/image-visibility.css">
+    <link rel="stylesheet" href="css/game-integration.css">
+    <link rel="stylesheet" href="css/circles.css">
+    <link rel="stylesheet" href="css/candles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="controls">
-            <button id="reset-btn">Сбросить</button>
+    <div class="game-container">
+        <div class="background"></div>
+        
+        <!-- Египетские боги -->
+        <div class="egyptian-gods">
+            <div class="god god-1" id="god-1"></div>
+            <div class="god god-2" id="god-2"></div>
+            <div class="god god-3" id="god-3"></div>
         </div>
-        <div class="circles-container">
-            <div class="circle-wrapper" id="circle-wrapper-1">
-                <div class="circle" id="circle-1"></div>
+        
+        <!-- Пирамиды с вращающимися кругами -->
+        <div class="pyramids-container">
+            <div class="pyramid pyramid-1">
+                <div class="circle-container">
+                    <div class="circle circle-1" id="circle-1">
+                        <div class="small-circle small-circle-1"></div>
+                        <div class="small-circle small-circle-2"></div>
+                        <div class="small-circle small-circle-3"></div>
+                        <div class="small-circle small-circle-4"></div>
+                        <div class="small-circle small-circle-5"></div>
+                        <div class="small-circle small-circle-6"></div>
+                        <div class="small-circle small-circle-7"></div>
+                        <div class="small-circle small-circle-8"></div>
+                        <div class="center-image" id="tikhon-image"></div>
+                    </div>
+                </div>
+                <div class="pyramid-label">Святитель Тихон</div>
             </div>
-            <div class="circle-wrapper" id="circle-wrapper-2">
-                <div class="circle" id="circle-2"></div>
+            
+            <div class="pyramid pyramid-2">
+                <div class="circle-container">
+                    <div class="circle circle-2" id="circle-2">
+                        <div class="small-circle small-circle-1"></div>
+                        <div class="small-circle small-circle-2"></div>
+                        <div class="small-circle small-circle-3"></div>
+                        <div class="small-circle small-circle-4"></div>
+                        <div class="small-circle small-circle-5"></div>
+                        <div class="small-circle small-circle-6"></div>
+                        <div class="small-circle small-circle-7"></div>
+                        <div class="small-circle small-circle-8"></div>
+                        <div class="center-image" id="putin-image"></div>
+                    </div>
+                </div>
+                <div class="pyramid-label">Путин</div>
             </div>
-            <div class="circle-wrapper" id="circle-wrapper-3">
-                <div class="circle" id="circle-3"></div>
+            
+            <div class="pyramid pyramid-3">
+                <div class="circle-container">
+                    <div class="circle circle-3" id="circle-3">
+                        <div class="small-circle small-circle-1"></div>
+                        <div class="small-circle small-circle-2"></div>
+                        <div class="small-circle small-circle-3"></div>
+                        <div class="small-circle small-circle-4"></div>
+                        <div class="small-circle small-circle-5"></div>
+                        <div class="small-circle small-circle-6"></div>
+                        <div class="small-circle small-circle-7"></div>
+                        <div class="small-circle small-circle-8"></div>
+                        <div class="dragon-container">
+                            <div class="dragon-head" id="dragon-chinese"></div>
+                            <div class="dragon-head" id="dragon-caucasian"></div>
+                            <div class="dragon-head" id="dragon-transparent"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pyramid-label">Дракон</div>
             </div>
+        </div>
+        
+        <!-- Контейнер для жестов египетских богов -->
+        <div class="gestures-container">
+            <div class="gesture" id="gesture-1"></div>
+            <div class="gesture" id="gesture-2"></div>
+            <div class="gesture" id="gesture-3"></div>
+        </div>
+        
+        <!-- Контейнер для тетриса -->
+        <div id="tetris-container">
+            <div class="tetris-grid"></div>
+            <div class="pyramid-outline"></div>
         </div>
     </div>
+
     <script src="js/script.js"></script>
+    <script src="js/improved-controls.js"></script>
+    <script src="js/tetris.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/candles.js"></script>
 </body>
 </html>
